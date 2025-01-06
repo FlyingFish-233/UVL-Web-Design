@@ -1,0 +1,95 @@
+html{
+    box-sizing: border-box; /*宽和高包含content,padding,border*/
+    height: 100%;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+    margin: 0; /*外边距*/
+    padding: 0; /*内边距*/
+}
+
+body{
+    background: linear-gradient(320deg, #eb92be, #ffef78, #63c9b4);
+    display: flex; /*flexbox布局*/
+    align-items: center; /*在交叉轴上的对齐方式*/
+    justify-content: center; /*在主轴上的对齐方式*/
+    height: inherit;
+    font-family: 'Dosis', sans-serif; /*'Dosis' 是首选字体，如果用户的设备上没有安装 Dosis 字体，则会回退到 sans-serif 通用字体族。*/
+    font-display: swap; /*如果字体未加载完成，浏览器会先使用备用字体显示内容，待字体加载完成后再替换。*/
+}
+
+.wrapper{
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    flex-basis: 400px;
+    height: 540px;
+    padding: 20px 35px;
+    color: #232323;
+}
+
+.screen{
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    padding: 20px;
+    width: 326px;
+    color: #232323;
+    font-size: 35px;
+    text-align: right;
+    overflow: auto; /*内容超出容器，浏览器会自动添加滚动条*/
+}
+
+.calc-button-row{
+    display: flex;
+    justify-content: space-between; /*子元素均匀分布*/
+    margin: 5% 0;
+}
+
+.calc-button{
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: rgba(35, 35, 35, 0.1);
+    flex-basis: 20%;
+    height: 65px;
+    color: #232323;
+    font-family: inherit;
+    font-size: 24px;
+}
+
+.calc-button:last-child{
+    color: #fff;
+    background: #d72880;
+}
+
+.double{
+    flex-basis: 47%;
+}
+
+.triple{
+    flex-basis: 73%;
+}
+
+.calc-button:hover{
+    background: inherit;
+}
+
+.calc-button:last-child:hover{
+    color: inherit;
+}
+
+.calc-button:active{
+    background-color: #ffef78;
+}
