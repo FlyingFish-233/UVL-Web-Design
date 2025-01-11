@@ -87,15 +87,15 @@ body{
 }
 
 .form-container{
-    position: absolute; /*绝对定位：相对于已定位的最近祖先元素*/
+    position: absolute; /*绝对定位（相对于父亲元素）*/
     top: 0;
+    left: 0;
+    width: 50%;
     height: 100%;
     transition: all 0.6s ease-in-out; /*对于所有可过渡的CSS属性应用动画效果，持续时间0.6s，先加速后减速*/
 }
 
 .sign-in{
-    left: 0;
-    width: 50%;
     z-index: 2; /*堆叠层级为2，数字越大离用户越近*/
 }
 
@@ -104,8 +104,6 @@ body{
 }
 
 .sign-up{
-    left: 0;
-    width: 50%;
     opacity: 0; /*不透明度为0，完全透明*/
     z-index: 1;
 }
@@ -115,4 +113,96 @@ body{
     opacity: 1;
     z-index: 5;
     animation: move 0.6s;
+}
+
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.social-icons{
+    margin: 20px 0;
+}
+
+.social-icons a{
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex; /*inline表示每个元素不独占一行*/
+    align-items: center;
+    justify-content: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
+
+.toggle-container{
+    border-radius: 150px 0 0 100px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    z-index: 1000;
+}
+
+.container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle{
+    background-color: #512da8;
+    background: linear-gradient(to right, #5c6bc0, #512da8);
+    height: 100%;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    color: #fff;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle{
+    transform: translateX(50%);
+}
+
+.toggle-panel{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left{
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left{
+    transform: translateX(0);
+}
+
+.toggle-right{
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .toggle-right{
+    transform: translateX(200%);
 }
