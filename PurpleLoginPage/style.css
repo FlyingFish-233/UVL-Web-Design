@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+TC&display=swap'); /*Montserrat*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container{
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative; /*相对定位*/
+    overflow: hidden; /*内容溢出元素的部分会被隐藏*/
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.container p{
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+}
+
+.container span{
+    font-size: 12px;
+}
+
+.container a{
+    margin: 15px 0 10px; /*外边距：上、左右、下*/
+    color: #333;
+    font-size: 13px;
+    text-decoration: none; /*防止链接的下划线*/
+}
+
+.container button{
+    background-color: #512da8;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 10px 45px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600; /*文本粗细*/
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.container button.hidden{
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.container form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.container input{
+    background-color: #eee;
+    border: none;
+    border-radius: 8px;
+    margin: 8px 0px;
+    padding: 10px 15px;
+    width: 100%;
+    outline: none; /*元素周围没有轮廓线*/
+    font-size: 13px;
+}
+
+.form-container{
+    position: absolute; /*绝对定位：相对于已定位的最近祖先元素*/
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out; /*对于所有可过渡的CSS属性应用动画效果，持续时间0.6s，先加速后减速*/
+}
+
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2; /*堆叠层级为2，数字越大离用户越近*/
+}
+
+.container.active .sign-in{
+    transform: translateX(100%); /*水平向右移动自身宽度的距离*/
+}
+
+.sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0; /*不透明度为0，完全透明*/
+    z-index: 1;
+}
+
+.container.active .sign-up{
+    transform: translateX(100%); /*水平向右移动自身宽度的距离*/
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
